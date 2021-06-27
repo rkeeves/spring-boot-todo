@@ -33,7 +33,7 @@ class TodoRepositoryIntegrationTest {
     @Test
     public void givenOneEntityExists_whenFindAll_thenReturnListWithOneElement() {
         // given
-        Todo todo = validTodo();
+        var todo = validTodo();
         var expectedEntity = entityManager.persist(todo);
         entityManager.flush();
         entityManager.clear();
@@ -46,9 +46,9 @@ class TodoRepositoryIntegrationTest {
     @Test
     public void givenNEntitiesExists_whenFindAll_thenReturnListWithNElements() {
         // given
-        Todo todo0 = validTodo();
+        var todo0 = validTodo();
         var expectedEntity0 = entityManager.persist(todo0);
-        Todo todo1 = new Todo();
+        var todo1 = new Todo();
         todo1.setTitle("SomeTitle1");
         todo1.setDescription("SomeDescription1");
         todo1.setProgressPercent(100);
@@ -73,7 +73,7 @@ class TodoRepositoryIntegrationTest {
     @Test
     public void givenEntityByIdExists_whenFindById_thenReturnTodo() {
         // given
-        Todo todo = validTodo();
+        var todo = validTodo();
         var expectedEntity = entityManager.persist(todo);
         entityManager.flush();
         entityManager.clear();
@@ -87,7 +87,7 @@ class TodoRepositoryIntegrationTest {
     @Test
     public void givenEntityIsValidAndIsNotYetPersisted_whenSave_thenReturnPersistedEntity() {
         // given
-        Todo todo = validTodo();
+        var todo = validTodo();
         // when
         var actualEntity = todoRepository.save(todo);
         // then
@@ -100,12 +100,12 @@ class TodoRepositoryIntegrationTest {
     @Test
     public void givenEntityIsValidAndIsPersisted_whenSave_thenReturnUpdatedEntity() {
         // given
-        Todo oldTodo = validTodo();
+        var oldTodo = validTodo();
         var expectedEntity = entityManager.persist(oldTodo);
         entityManager.flush();
         entityManager.clear();
 
-        Todo changedTodo = new Todo();
+        var changedTodo = new Todo();
         changedTodo.setId(oldTodo.getId());
         changedTodo.setTitle("SomeTitleA");
         changedTodo.setDescription("SomeDescriptionB");
@@ -122,7 +122,7 @@ class TodoRepositoryIntegrationTest {
     @Test
     public void givenEntityIsValid_whenSave_thenReturnEntity() {
         // given
-        Todo todo = validTodo();
+        var todo = validTodo();
         // when
         var actual = todoRepository.save(todo);
         // then
