@@ -1,6 +1,8 @@
 package com.rkeeves.springboottodo.todo.controller;
 
 import com.rkeeves.springboottodo.todo.dto.TodoCreateDTO;
+import com.rkeeves.springboottodo.todo.service.TodoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,7 +12,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
+@RequiredArgsConstructor
 public class TodoController {
+
+    private final TodoService todoService;
+
+    @GetMapping("/")
+    public String showTodoList(Model model){
+        model.addAttribute("todos" ,  todoService.findAllTodos());
+        return "todo/list";
+    }
 
     @GetMapping("/todo/add")
     public String showFormCreateTodo(Model model){
@@ -23,6 +34,7 @@ public class TodoController {
         if (result.hasErrors()) {
             return "todo/add";
         }
+        todoService.createAndSaveNewTodo(todoCreateDTO);
         return "redirect:/";
     }
 }
