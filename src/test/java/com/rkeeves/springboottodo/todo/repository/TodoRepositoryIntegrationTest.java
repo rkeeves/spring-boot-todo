@@ -21,7 +21,7 @@ class TodoRepositoryIntegrationTest {
     private TodoRepository todoRepository;
 
     @Test
-    public void givenNoEntitiesExists_whenFindAll_thenReturnEmptyList() {
+    void givenNoEntitiesExists_whenFindAll_thenReturnEmptyList() {
         // given
         // no entities exist
         // when
@@ -31,7 +31,7 @@ class TodoRepositoryIntegrationTest {
     }
 
     @Test
-    public void givenOneEntityExists_whenFindAll_thenReturnListWithOneElement() {
+    void givenOneEntityExists_whenFindAll_thenReturnListWithOneElement() {
         // given
         var todo = validTodo();
         var expectedEntity = entityManager.persist(todo);
@@ -44,7 +44,7 @@ class TodoRepositoryIntegrationTest {
     }
 
     @Test
-    public void givenNEntitiesExists_whenFindAll_thenReturnListWithNElements() {
+    void givenNEntitiesExists_whenFindAll_thenReturnListWithNElements() {
         // given
         var todo0 = validTodo();
         var expectedEntity0 = entityManager.persist(todo0);
@@ -62,7 +62,7 @@ class TodoRepositoryIntegrationTest {
     }
 
     @Test
-    public void givenEntityByIdNotExists_whenFindById_thenReturnTodo() {
+    void givenEntityByIdNotExists_whenFindById_thenReturnTodo() {
         // given
         // when
         var actualEntityOptional = todoRepository.findById(1L);
@@ -71,7 +71,7 @@ class TodoRepositoryIntegrationTest {
     }
 
     @Test
-    public void givenEntityByIdExists_whenFindById_thenReturnTodo() {
+    void givenEntityByIdExists_whenFindById_thenReturnTodo() {
         // given
         var todo = validTodo();
         var expectedEntity = entityManager.persist(todo);
@@ -85,7 +85,7 @@ class TodoRepositoryIntegrationTest {
     }
 
     @Test
-    public void givenEntityIsValidAndIsNotYetPersisted_whenSave_thenReturnPersistedEntity() {
+    void givenEntityIsValidAndIsNotYetPersisted_whenSave_thenReturnPersistedEntity() {
         // given
         var todo = validTodo();
         // when
@@ -98,7 +98,7 @@ class TodoRepositoryIntegrationTest {
     }
 
     @Test
-    public void givenEntityIsValidAndIsPersisted_whenSave_thenReturnUpdatedEntity() {
+    void givenEntityIsValidAndIsPersisted_whenSave_thenReturnUpdatedEntity() {
         // given
         var oldTodo = validTodo();
         var expectedEntity = entityManager.persist(oldTodo);
@@ -120,7 +120,7 @@ class TodoRepositoryIntegrationTest {
     }
 
     @Test
-    public void givenEntityIsValid_whenSave_thenReturnEntity() {
+    void givenEntityIsValid_whenSave_thenReturnEntity() {
         // given
         var todo = validTodo();
         // when

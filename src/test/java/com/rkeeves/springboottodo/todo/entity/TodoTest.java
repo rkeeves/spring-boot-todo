@@ -21,7 +21,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityTitleNull_whenValidate_thenReturnNonEmptyListOfViolations() {
+    void givenEntityTitleNull_whenValidate_thenReturnNonEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setTitle(null);
@@ -32,7 +32,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityTitleEmpty_whenValidate_thenReturnNonEmptyListOfViolations() {
+    void givenEntityTitleEmpty_whenValidate_thenReturnNonEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setTitle("");
@@ -43,7 +43,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityTitleIs50_whenValidate_thenReturnEmptyListOfViolations() {
+    void givenEntityTitleIs50_whenValidate_thenReturnEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setTitle("x".repeat(50));
@@ -54,7 +54,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityTitleIsLongerThan50_whenValidate_thenReturnNonEmptyListOfViolations() {
+    void givenEntityTitleIsLongerThan50_whenValidate_thenReturnNonEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setTitle("x".repeat(51));
@@ -65,7 +65,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityDescriptionIsNull_whenValidate_thenReturnNonEmptyListOfViolations() {
+    void givenEntityDescriptionIsNull_whenValidate_thenReturnNonEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setDescription(null);
@@ -76,7 +76,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityDescriptionIsEmpty_whenValidate_thenReturnEmptyListOfViolations() {
+    void givenEntityDescriptionIsEmpty_whenValidate_thenReturnEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setDescription("");
@@ -87,7 +87,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityDescriptionIs200Long_whenValidate_thenReturnEmptyListOfViolations() {
+    void givenEntityDescriptionIs200Long_whenValidate_thenReturnEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setDescription("x".repeat(200));
@@ -98,7 +98,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityDescriptionIsLongerThan200_whenValidate_thenReturnNonEmptyListOfViolations() {
+    void givenEntityDescriptionIsLongerThan200_whenValidate_thenReturnNonEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setDescription("x".repeat(201));
@@ -109,7 +109,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityProgressPercentIsNull_whenValidate_thenReturnNonEmptyListOfViolations() {
+    void givenEntityProgressPercentIsNull_whenValidate_thenReturnNonEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setProgressPercent(null);
@@ -120,7 +120,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityProgressPercentIsLessThanZero_whenValidate_thenReturnNonEmptyListOfViolations() {
+    void givenEntityProgressPercentIsLessThanZero_whenValidate_thenReturnNonEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setProgressPercent(-1);
@@ -131,7 +131,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityProgressPercentIsMoreThan100_whenValidate_thenReturnNonEmptyListOfViolations() {
+    void givenEntityProgressPercentIsMoreThan100_whenValidate_thenReturnNonEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setProgressPercent(101);
@@ -142,7 +142,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityProgressPercentIs0_whenValidate_thenReturnEmptyListOfViolations() {
+    void givenEntityProgressPercentIs0_whenValidate_thenReturnEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setProgressPercent(100);
@@ -153,7 +153,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityProgressPercentIsBetween0And100_whenValidate_thenReturnEmptyListOfViolations() {
+    void givenEntityProgressPercentIsBetween0And100_whenValidate_thenReturnEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setProgressPercent(50);
@@ -164,7 +164,7 @@ class TodoTest {
     }
 
     @Test
-    public void givenEntityProgressPercentIs100_whenValidate_thenReturnEmptyListOfViolations() {
+    void givenEntityProgressPercentIs100_whenValidate_thenReturnEmptyListOfViolations() {
         // given
         var todo = validTodo();
         todo.setProgressPercent(100);
