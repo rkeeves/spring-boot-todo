@@ -1,15 +1,13 @@
 package com.rkeeves.springboottodo.todo.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "todos")
-@Getter
-@Setter
+@Data
 public class Todo {
 
     @Id
