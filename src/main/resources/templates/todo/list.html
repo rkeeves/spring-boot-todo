@@ -22,6 +22,7 @@
             <td><span th:text="${todo.getTitle()}"> Title </span></td>
             <td><span th:text="${todo.getDescription()}"> Description </span></td>
             <td><input type="range" disabled min="1" max="100" value="50" th:value="${todo.getProgressPercent()}"></td>
+            <td><a th:href="@{/todo/delete/{todoId}(todoId=${todo.getId()})}">Delete</a></td>
         </tr>
     </tbody>
 </table>
