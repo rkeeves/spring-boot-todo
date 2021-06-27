@@ -1,6 +1,7 @@
 package com.rkeeves.springboottodo.todo.controller;
 
 import com.rkeeves.springboottodo.todo.dto.TodoCreateDTO;
+import com.rkeeves.springboottodo.todo.entity.Todo;
 import com.rkeeves.springboottodo.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -40,8 +41,27 @@ public class TodoController {
     }
 
     @GetMapping("/todo/delete/{todoId}")
-    public String showFormCreateTodo(@PathVariable Long todoId){
+    public String deleteTodo(@PathVariable Long todoId){
         todoService.delete(todoId);
+        return "redirect:/";
+    }
+
+    @GetMapping("/todo/edit/{todoId}")
+    public String showFormEditTodo(@PathVariable Long todoId, Model model){
+        var editableTodo = todoService.findById(todoId);
+        if(editableTodo.isEmpty()){
+            return "redirect:/";
+        }
+        model.addAttribute("todo", editableTodo.get());
+        return "todo/edit";
+    }
+
+    @PostMapping("/todo/edit")
+    public String showFormEditTodo(@Valid Todo todo, BindingResult result, Model model){
+        if (result.hasErrors()) {
+            return "todo/edit";
+        }
+        todoService.update(todo);
         return "redirect:/";
     }
 }
