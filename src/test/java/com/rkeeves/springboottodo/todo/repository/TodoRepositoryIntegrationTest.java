@@ -101,7 +101,7 @@ class TodoRepositoryIntegrationTest {
     void givenEntityIsValidAndIsPersisted_whenSave_thenReturnUpdatedEntity() {
         // given
         var oldTodo = validTodo();
-        var expectedEntity = entityManager.persist(oldTodo);
+        entityManager.persist(oldTodo);
         entityManager.flush();
         entityManager.clear();
 
