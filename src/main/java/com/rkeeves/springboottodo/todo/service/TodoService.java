@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,5 +31,13 @@ public class TodoService {
         todoRepository.findById(todoId).ifPresent(todo -> {
             todoRepository.deleteById(todoId);
         });
+    }
+
+    public Optional<Todo> findById(Long todoId) {
+        return todoRepository.findById(todoId);
+    }
+
+    public Todo update(Todo todo) {
+        return todoRepository.save(todo);
     }
 }
