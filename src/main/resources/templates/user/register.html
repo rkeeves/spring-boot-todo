@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragment/general.html :: header-includes"></th:block>
+    <title>Register</title>
+</head>
+<body>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-xs-2 col-sm-2 col-md-4">
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form action="#" th:action="@{/register}" th:object="${userRegisterDTO}" th:method="post">
+                        <h3>Register</h3>
+                        <div th:if="${registerError}">
+                            <div class="alert alert-danger">
+                                <span class="text-danger">Username already exists.</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userName" class="form-control-label px-3">username</label>
+                            <input type="text" th:field="*{userName}" class="form-control" id="userName" placeholder="username">
+                            <span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="text-danger" ></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="form-control-label px-3">password</label>
+                            <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="password">
+                            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger" ></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:replace="fragment/general.html :: footer-includes"></th:block>
+</body>
+</html>
