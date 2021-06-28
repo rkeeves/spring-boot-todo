@@ -1,4 +1,4 @@
-package com.rkeeves.springboottodo.user.service;
+package com.rkeeves.springboottodo.security.service;
 
 import com.rkeeves.springboottodo.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
