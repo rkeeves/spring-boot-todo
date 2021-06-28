@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragment/general.html :: header-includes"></th:block>
+    <title>Error</title>
+</head>
+<body>
+<div th:fragment="errorBody (errorCode, errorName, errorMessage)" class="container" >
+    <div class="card mt-5">
+        <div class="card-body">
+            <h3 class="card-title">Oops!</h3>
+            <h5 class="card-subtitle mb-2 text-muted"><span th:text="${errorName}">errorName</span></h5>
+            <p class="card-text"><span th:text="${errorMessage}">errorMessage</span></p>
+            <a href="#" th:href="@{/}" class="card-link">Back to home</a>
+        </div>
+    </div>
+</div>
+<th:block th:replace="fragment/general.html :: footer-includes"></th:block>
+</body>
+</html>
+
