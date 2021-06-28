@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragment/general.html :: header-includes"></th:block>
+    <title>Forbidden</title>
+</head>
+<body>
+<div th:replace="fragment/error.html :: errorBody(errorCode='403', errorName='Forbidden',errorMessage='You don\'t have the necessary authorities!')"></div>
+<th:block th:replace="fragment/general.html :: footer-includes"></th:block>
+</body>
+</html>
+
