@@ -1,6 +1,6 @@
 package com.rkeeves.springboottodo.security.config;
 
-import com.rkeeves.springboottodo.user.service.JpaBasedUserDetailsService;
+import com.rkeeves.springboottodo.security.service.JpaBasedUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -27,7 +27,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").hasAnyRole("ADMIN", "USER")
                 .and()
-                .formLogin();
+                .formLogin(loginConfig->{
+                    loginConfig.loginPage("/login");
+                    loginConfig.failureUrl("/login-error");
+                    loginConfig.loginProcessingUrl("/process-login");
+                })
+                .logout(logoutConfig -> {
+                    logoutConfig.logoutUrl("/perform-logout");
+                    logoutConfig.logoutSuccessUrl("/login");
+                    logoutConfig.invalidateHttpSession(true);
+                    logoutConfig.deleteCookies("JSESSIONID");
+                });
     }
 
     @Bean
