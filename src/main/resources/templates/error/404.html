@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragment/general.html :: header-includes"></th:block>
+    <title>Not found</title>
+</head>
+<body>
+<div th:replace="fragment/error.html :: errorBody(errorCode='404', errorName='Not Found',errorMessage='The requested resource does not exist!')"></div>
+<th:block th:replace="fragment/general.html :: footer-includes"></th:block>
+</body>
+</html>
+
